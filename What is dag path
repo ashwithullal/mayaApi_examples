@@ -1,0 +1,12 @@
+# example for the dag path . ie used to reurn the entire hierarchy of the selected object
+
+import maya.api.OpenMaya as OpenMaya
+
+# Get the selected object
+selection = OpenMaya.MGlobal.getActiveSelectionList()
+
+# Get the DAG path for the first object in the selection list
+dag_path = selection.getDagPath(0)
+
+# Print the DAG path
+print(dag_path.fullPathName())
