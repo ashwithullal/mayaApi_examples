@@ -1,0 +1,13 @@
+import maya.cmds as cmds
+import multiprocessing
+
+def process_object(obj):
+    # Do some operation on the object
+    cmds.move(0, 1, 0, obj)
+
+# Get a list of objects in the scene
+objects = cmds.ls(sl = True)
+
+# Create a Pool with 4 worker processes
+with multiprocessing.Pool(2) as p:
+    p.map(process_object, objects)
